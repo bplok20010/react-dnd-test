@@ -10,11 +10,11 @@ const Types = {
 };
 const CardSource = {
     canDrag(props, monitor) {
-        console.log(props, monitor)
+        // console.log(props, monitor)
         return 1;
     },
     beginDrag(props, monitor, component) {
-        console.log(monitor.getItem(), 'abc')
+        console.log(props, monitor.getItem(), 'abc')
         return {
             name: 'nobo',
             index: props.index
@@ -27,7 +27,7 @@ const CardTarget = {
     },
     hover(props, monitor, component) { //组件在target上方时触发的事件
         if (!component) return null;
-        console.log(monitor.getItem())
+        //console.log(monitor.getItem())
         const dragIndex = monitor.getItem().index;//拖拽目标的Index
         const hoverIndex = props.index; //目标Index
         if (dragIndex === props.lastIndex || hoverIndex === props.lastIndex) return null;
@@ -56,7 +56,7 @@ function collect1(connect, monitor) {
     }
 }
 function collect(connect, monitor) {
-    console.log(connect.dragSource(), 123)
+    //console.log(connect.dragSource(), 123)
     return {
         connectDragSource: connect.dragSource(),
         isDragging: monitor.isDragging(),
@@ -88,7 +88,7 @@ class CardItem extends Component {
     render() {
         const { isDragging, connectDragSource, connectDropTarget, nobo } = this.props;
         let opacity = isDragging ? 0.5 : 1;
-        console.log(connectDragSource, nobo, 222)
+        // console.log(connectDragSource, nobo, 222)
         return connectDragSource(
             connectDropTarget(<div>
                 <Card
