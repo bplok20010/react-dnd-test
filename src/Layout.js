@@ -55,6 +55,22 @@ export default class AppLayout extends React.Component {
             {
                 id: uuid(),
                 pid: null,
+            },
+            {
+                id: uuid(),
+                pid: null,
+            },
+            {
+                id: uuid(),
+                pid: null,
+            },
+            {
+                id: uuid(),
+                pid: null,
+            },
+            {
+                id: uuid(),
+                pid: null,
             }
         ];
 
@@ -68,6 +84,10 @@ export default class AppLayout extends React.Component {
         })
     }
 
+    dropPointerRef = dom => {
+        this.dropPointer = dom;
+    }
+
     render() {
         const { layoutStore } = this.state;
         return (
@@ -77,13 +97,14 @@ export default class AppLayout extends React.Component {
                         <WidgetsList />
                     </Sider>
                     <Content style={{
-                        padding: 10
+                        padding: 10,
                     }}>
                         {
                             this.getLayoutChildren(null).map(item => <WidgetDropTarget key={item.id} data={item} />)
                         }
+                        <div className="drop-pointer" ref={this.dropPointerRef}></div>
                     </Content>
-                    <Sider theme="light">BBBBB</Sider>
+                    <Sider theme="light">组件属性面板</Sider>
                 </Layout>
             </LayoutContext.Provider>
         );

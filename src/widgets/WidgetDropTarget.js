@@ -15,11 +15,16 @@ const spec = {
         return true;
     },
     drop(props, monitor, component) {
+        if (monitor.didDrop()) {
+            console.log('has did drop')
+            return;
+        }
+        console.log(111)
         const cid = props.data.id;
         const layout = component.context;
         //console.log(monitor.getItem())
         layout.addLayoutChildren(cid, {
-            uuid: uuid(),
+            id: uuid(),
             widget: monitor.getItem(),
         })
     }
@@ -28,7 +33,7 @@ const spec = {
 const collect = (connect, monitor) => {
     return {
         connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver(),
+        isOver: monitor.isOver({ shallow: true }),
         canDrop: monitor.canDrop(),
     }
 }
@@ -43,14 +48,14 @@ class WidgetDropTarget extends React.Component {
         const items = layout.getLayoutChildren(data.id);
 
         return connectDropTarget(
-            <div dropId={data.id} className={cx({
+            <div drop-id={data.id} className={cx({
                 "widget-drop-container": true,
                 "drag-over": isOver,
                 "drop-tips": canDrop,
             })}>
                 {
                     items.map(item => {
-                        return <WidgetDropItem data={item} />
+                        return <WidgetDropItem key={item.id} data={item} />
                     })
                 }
             </div>

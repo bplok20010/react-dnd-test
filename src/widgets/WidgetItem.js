@@ -9,7 +9,7 @@ import Types from './Types';
 
 const spec = {
     beginDrag(props) {
-        return props;
+        return props.data;
     },
     canDrag(props) {
         return !props.disabled;
@@ -26,8 +26,8 @@ const collect = (connect, monitor) => {
 class WidgetItem extends React.Component {
 
     render() {
-        const { cmpid, disabled, title = "未知组件", connectDragSource, isDragging } = this.props;
-
+        const { disabled, data, connectDragSource, isDragging } = this.props;
+        const { cmpid, title = "未知组件" } = data;
         return connectDragSource(
             <div className={cx({
                 "widget-item": true,

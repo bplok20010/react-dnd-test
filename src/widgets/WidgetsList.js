@@ -29,7 +29,7 @@ export default () => {
     return (
         <div className="widget-item-list">
             {
-                list.map(item => <WidgetItem {...item} key={item.id} />)
+                list.map(item => <WidgetItem data={item} key={item.id} />)
             }
         </div>
     );

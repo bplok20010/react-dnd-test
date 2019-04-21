@@ -1,3 +1,9 @@
+.drop-pointer {
+    position: absolute;
+    background: red;
+    width: 10px;
+}
+
 .widget-item {
     display: flex;
     align-items: center;
@@ -5,6 +11,7 @@
     border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
     user-select: none;
+    position: relative;
     &:hover {
         background: #f6f6f6;
     }
@@ -47,7 +54,8 @@
 
 .widget-drop-item {
     flex: 1;
-    border: 1px solid yellow;
+    position: relative;
+    background: #9fcaf1;
     margin-right: 8px;
     &:last-child {
         margin-right: 0;

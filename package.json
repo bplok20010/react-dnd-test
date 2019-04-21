@@ -39,6 +39,7 @@
         "bplokjs-utils": "0.0.1",
         "classnames": "^2.2.6",
         "install": "^0.12.2",
+        "jquery": "^3.4.0",
         "lodash": "^4.17.11",
         "lodash.flow": "^3.5.0",
         "npm": "^6.4.1",

@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .App {
     text-align: center;
 }
@@ -34,6 +38,7 @@
 .card {
     display: flex;
     margin: 50px;
+    margin-top: 0;
 }
 .card {
     margin-right: 20px;
