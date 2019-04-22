@@ -46,7 +46,7 @@ class WidgetDropTarget extends React.Component {
         const { connectDropTarget, isOver, canDrop, data } = this.props;
         const layout = this.context;
         const items = layout.getLayoutChildren(data.id);
-
+        console.log('dp c')
         return connectDropTarget(
             <div drop-id={data.id} className={cx({
                 "widget-drop-container": true,
